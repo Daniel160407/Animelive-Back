@@ -1,7 +1,9 @@
 package com.animelive.util;
 
 import com.animelive.dto.AnimeDto;
+import com.animelive.dto.EpisodeDto;
 import com.animelive.model.Anime;
+import com.animelive.model.Episode;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -18,15 +20,42 @@ public class ModelConverter {
     public AnimeDto convert(Anime anime) {
         return AnimeDto.builder()
                 .name(anime.getName())
+                .seasons(anime.getSeasons())
                 .episodes(anime.getEpisodes())
                 .ganre(anime.getGanre())
                 .releaseTime(anime.getReleaseTime())
                 .studio(anime.getStudio())
                 .ageRestriction(anime.getAgeRestriction())
-                .apisodeDuration(anime.getEpisodeDuration())
+                .episodeDuration(anime.getEpisodeDuration())
                 .imdb(anime.getImdb())
                 .description(anime.getDescription())
-                .url(anime.getUrl())
                 .build();
+    }
+
+    public Anime convert(AnimeDto animeDto) {
+        return Anime.builder()
+                .name(animeDto.getName())
+                .seasons(animeDto.getSeasons())
+                .episodes(animeDto.getEpisodes())
+                .ganre(animeDto.getGanre())
+                .releaseTime(animeDto.getReleaseTime())
+                .studio(animeDto.getStudio())
+                .ageRestriction(animeDto.getAgeRestriction())
+                .episodeDuration(animeDto.getEpisodeDuration())
+                .imdb(animeDto.getImdb())
+                .description(animeDto.getDescription())
+                .build();
+    }
+
+    public List<EpisodeDto> convertEpisodesToDtoList(List<Episode> episodes) {
+        List<EpisodeDto> episodeDtos = new ArrayList<>();
+        episodes.forEach(episode -> episodeDtos.add(new EpisodeDto(episode.getSeason(), episode.getEpisode(), episode.getUrl())));
+        return episodeDtos;
+    }
+
+    public List<Episode> convertEpisodeDtosToEpisodesList(List<EpisodeDto> episodeDtos) {
+        List<Episode> episodes = new ArrayList<>();
+        episodeDtos.forEach(episodeDto -> episodes.add(new Episode(episodeDto.getSeason(), episodeDto.getEpisode(), episodeDto.getUrl())));
+        return episodes;
     }
 }

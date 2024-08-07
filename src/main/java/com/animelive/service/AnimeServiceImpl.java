@@ -25,8 +25,10 @@ public class AnimeServiceImpl implements AnimeService {
 
     @Override
     public List<AnimeDto> getAnimes(int page) {
-        Sort.Direction sortDirection = Sort.Direction.DESC;
-        Pageable pageable = PageRequest.of(page, 30, Sort.by(sortDirection, "imdb"));
+        if (page < 0) {
+            page = 0;
+        }
+        Pageable pageable = PageRequest.of(page, 30, Sort.by(Sort.Direction.DESC, "imdb"));
         List<Anime> animes = animeRepository.findAll(pageable).getContent();
         return modelConverter.convertAnimeListToDto(animes);
     }

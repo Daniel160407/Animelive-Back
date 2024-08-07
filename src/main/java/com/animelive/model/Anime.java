@@ -19,8 +19,10 @@ public class Anime {
     private Integer id;
     @Column(name = "name")
     private String name;
+    @Column(name = "seasons")
+    private Integer seasons;
     @Column(name = "episodes")
-    private String episodes;
+    private Integer episodes;
     @Column(name = "ganre")
     private String ganre;
     @Column(name = "release_time")
@@ -35,6 +37,4 @@ public class Anime {
     private Double imdb;
     @Column(name = "description")
     private String description;
-    @Column(name = "url")
-    private String url;
 }

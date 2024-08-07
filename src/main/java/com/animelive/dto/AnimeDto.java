@@ -7,6 +7,7 @@ import lombok.Data;
 @Builder
 public class AnimeDto {
     private String name;
+    private Integer seasons;
     private Integer episodes;
     private String ganre;
     private String releaseTime;
@@ -15,5 +16,4 @@ public class AnimeDto {
     private String episodeDuration;
     private Double imdb;
     private String description;
-    private String url;
 }
