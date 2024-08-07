@@ -34,12 +34,17 @@ public class AnimeServiceImpl implements AnimeService {
     }
 
     @Override
-    public List<AnimeDto> getAnimesByGanre(String ganre) {
-        return List.of();
+    public List<AnimeDto> getAnimesByGenre(String genre) {
+        return modelConverter.convertAnimeListToDto(animeRepository.findAllByGenre(genre));
     }
 
     @Override
     public AnimeDto getAnimeByName(String name) {
-        return null;
+        return modelConverter.convert(animeRepository.findByName(name));
+    }
+
+    @Override
+    public List<AnimeDto> getAnimesStartingWith(String prefix) {
+        return modelConverter.convertAnimeListToDto(animeRepository.findAllByGenreStartingWith(prefix));
     }
 }

@@ -22,9 +22,9 @@ public class Anime {
     @Column(name = "seasons")
     private Integer seasons;
     @Column(name = "episodes")
-    private Integer episodes;
-    @Column(name = "ganre")
-    private String ganre;
+    private String episodes;
+    @Column(name = "genre")
+    private String genre;
     @Column(name = "release_time")
     private String releaseTime;
     @Column(name = "studio")

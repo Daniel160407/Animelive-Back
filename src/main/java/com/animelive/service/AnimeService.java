@@ -9,7 +9,8 @@ import java.util.List;
 public interface AnimeService {
     List<AnimeDto> getAnimes(int page);
 
-    List<AnimeDto> getAnimesByGanre(String ganre);
+    List<AnimeDto> getAnimesByGenre(String genre);
 
     AnimeDto getAnimeByName(String name);
+    List<AnimeDto>getAnimesStartingWith(String prefix);
 }

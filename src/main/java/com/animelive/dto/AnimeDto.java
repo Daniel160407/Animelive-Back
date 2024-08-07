@@ -8,8 +8,8 @@ import lombok.Data;
 public class AnimeDto {
     private String name;
     private Integer seasons;
-    private Integer episodes;
-    private String ganre;
+    private String episodes;
+    private String genre;
     private String releaseTime;
     private String studio;
     private String ageRestriction;

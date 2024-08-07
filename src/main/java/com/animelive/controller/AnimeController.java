@@ -18,6 +18,16 @@ public class AnimeController {
 
     @GetMapping
     public ResponseEntity<?> getAnimes(@RequestParam Integer page) {
-        return ResponseEntity.ok().body(animeService.getAnimes(page));
+        return ResponseEntity.ok(animeService.getAnimes(page));
+    }
+
+    @GetMapping("/search/anime")
+    public ResponseEntity<?> searchAnimeByName(@RequestParam String name) {
+        return ResponseEntity.ok(animeService.getAnimeByName(name));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<?> searchAnimeByPrefix(@RequestParam String prefix) {
+        return ResponseEntity.ok(animeService.getAnimesStartingWith(prefix));
     }
 }
