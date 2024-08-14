@@ -1,10 +1,12 @@
 package com.animelive.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
+@AllArgsConstructor
 public class AnimeDto {
     private String name;
     private Integer seasons;
@@ -16,4 +18,5 @@ public class AnimeDto {
     private String episodeDuration;
     private Double imdb;
     private String description;
+    private String imageUrl;
 }

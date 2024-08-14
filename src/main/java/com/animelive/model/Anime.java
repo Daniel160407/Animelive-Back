@@ -37,4 +37,6 @@ public class Anime {
     private Double imdb;
     @Column(name = "description")
     private String description;
+    @Column(name = "image_url")
+    private String imageUrl;
 }
